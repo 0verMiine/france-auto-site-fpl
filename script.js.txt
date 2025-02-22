@@ -1,0 +1,37 @@
+// script.js - Gestion dynamique du catalogue de France Auto
+
+const vehicles = [
+    { name: "Truffade Adder", price: 1000000, image: "images/adder.jpg", speed: 350, acceleration: 3.2 },
+    { name: "Pegassi Zentorno", price: 750000, image: "images/zentorno.jpg", speed: 340, acceleration: 3.5 },
+    { name: "Progen T20", price: 2200000, image: "images/t20.jpg", speed: 360, acceleration: 2.9 }
+];
+
+const catalogue = document.getElementById("catalogue");
+const searchInput = document.getElementById("search");
+
+function displayVehicles(filter = "") {
+    catalogue.innerHTML = "";
+    vehicles.filter(vehicle => vehicle.name.toLowerCase().includes(filter.toLowerCase()))
+        .forEach(vehicle => {
+            const vehicleCard = document.createElement("div");
+            vehicleCard.classList.add("vehicle-card");
+            vehicleCard.innerHTML = `
+                <img src="${vehicle.image}" alt="${vehicle.name}">
+                <h3>${vehicle.name}</h3>
+                <p class="price">Prix: ${vehicle.price.toLocaleString()}$</p>
+                <p>Vitesse: ${vehicle.speed} km/h</p>
+                <p>Accélération: ${vehicle.acceleration}s</p>
+                <button onclick="buyVehicle('${vehicle.name}')">Acheter</button>
+            `;
+            catalogue.appendChild(vehicleCard);
+        });
+}
+
+displayVehicles();
+
+searchInput.addEventListener("input", () => {
+    displayVehicles(searchInput.value);
+});
+
+function buyVehicle(vehicleName) {
+    alert(`Vous avez acheté un ${vehicleName} !`);

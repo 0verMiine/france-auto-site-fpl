@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>France Auto - Catalogue</title>
+    <link rel="stylesheet" href="styles.css">
+    <script defer src="script.js"></script>
+</head>
+<body>
+    <header>
+        <h1>France Auto - Catalogue</h1>
+        <p>Bienvenue sur le concessionnaire de France Paris Life</p>
+    </header>
+
+    <section class="search-bar">
+        <input type="text" id="search" placeholder="Rechercher un véhicule...">
+    </section>
+
+    <section class="catalogue" id="catalogue">
+        <!-- Les véhicules seront chargés ici via JavaScript -->
+    </section>
+
+    <footer>
+        <p>&copy; 2024 France Auto - Tous droits réservés.</p>
+    </footer>
+</body>
+</html>
